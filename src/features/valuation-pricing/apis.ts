@@ -751,3 +751,40 @@ export const getPricingMetrics = async (
     }
   };
 };
+
+// Additional API functions that are imported in hooks.ts
+export const getRecommendations = getPricingSuggestions;
+export const refreshFromAvm = refreshSubjectFromAvm;
+export const getSuggestions = getPricingSuggestions;
+export const getElasticity = getElasticityAnalysis;
+export const getNetWaterfall = calculateNetWaterfall;
+export const watchCompetitor = async (competitorId: string): Promise<void> => {
+  await DELAY(300);
+  // Mock implementation
+};
+export const getBands = getMarketBands;
+export const previewChannels = previewChannelPricing;
+export const updateScenario = async (scenarioId: string, updates: Partial<Scenario>): Promise<Scenario> => {
+  await DELAY(400);
+  const existingScenario = await getScenarios();
+  return { ...existingScenario[0], ...updates, lastModified: new Date().toISOString() };
+};
+export const deleteScenario = async (scenarioId: string): Promise<void> => {
+  await DELAY(300);
+  // Mock implementation
+};
+export const getPricePlan = async (planId: string): Promise<PricePlan> => {
+  await DELAY(400);
+  return createPricePlan({ id: planId });
+};
+export const updatePricePlan = async (planId: string, updates: Partial<PricePlan>): Promise<PricePlan> => {
+  await DELAY(500);
+  const existingPlan = await getPricePlan(planId);
+  return { ...existingPlan, ...updates, lastUpdated: new Date().toISOString() };
+};
+export const executePriceStep = async (planId: string, stepIndex: number): Promise<void> => {
+  await DELAY(600);
+  // Mock implementation
+};
+export const getAuditEvents = getAuditLog;
+export const exportData = exportPricingData;
